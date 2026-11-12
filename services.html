@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Make Xora Unified Digital Growth Agency</title>
+  <meta name="description" content="Explore Make Xora's five integrated digital service pillars: SEO & AI Search, Social Media Management, Media Buying & Paid Ads, Full-Stack Web Development, and Content Strategy.">
+  <link rel="canonical" href="https://makexora.com/services.html">
+
+  <meta property="og:title" content="Our Digital Services — Make Xora">
+  <meta property="og:description" content="Integrated digital growth capabilities: search rankings, AI recommendations, organic social, paid ad performance, and custom web development.">
+  <meta property="og:image" content="assets/brand/makexora-nav-logo.png">
+
+  <!-- Theme Script -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('makexora-theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+       FLOATING PILL NAVBAR
+       ========================================================================== -->
+  <div class="floating-nav-wrapper">
+    <nav class="floating-nav-pill" aria-label="Primary Navigation">
+      <a href="index.html" class="nav-brand-badge" aria-label="Make Xora Home">
+        <img src="assets/brand/makexora-nav-logo.png" alt="Make Xora Logo" class="nav-brand-logo-img">
+        <span class="nav-brand-text">MAKE <span class="text-red">XORA</span></span>
+      </a>
+
+      <ul class="nav-pill-links">
+        <li class="nav-pill-dropdown">
+          <a href="services.html" class="nav-pill-link">
+            Services
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="nav-pill-dropdown-menu">
+            <a href="services/seo-ai-search.html" class="dropdown-link-item">
+              <span class="dropdown-link-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </span>
+              <span>SEO &amp; AI Search</span>
+            </a>
+            <a href="services/social-media.html" class="dropdown-link-item">
+              <span class="dropdown-link-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </span>
+              <span>Social Media Management</span>
+            </a>
+            <a href="services/paid-advertising.html" class="dropdown-link-item">
+              <span class="dropdown-link-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </span>
+              <span>Media Buying &amp; Ads</span>
+            </a>
+            <a href="services/web-development.html" class="dropdown-link-item">
+              <span class="dropdown-link-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </span>
+              <span>Full-Stack Web Dev</span>
+            </a>
+            <a href="services/content-strategy.html" class="dropdown-link-item">
+              <span class="dropdown-link-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </span>
+              <span>Content &amp; Creative</span>
+            </a>
+          </div>
+        </li>
+        <li><a href="portfolio.html" class="nav-pill-link">Case Studies</a></li>
+        <li><a href="pricing.html" class="nav-pill-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-pill-link">About</a></li>
+        <li><a href="contact.html" class="nav-pill-link">Contact</a></li>
+      </ul>
+
+      <a href="contact.html" class="nav-pill-cta">Book Free Audit</a>
+
+      <button class="nav-mobile-btn" aria-label="Open mobile navigation">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" style="position: fixed; top: 0; right: -100%; width: 300px; height: 100vh; background: #0c0d12; border-left: 1px solid rgba(255,255,255,0.1); padding: 32px 24px; z-index: 1001; transition: right 0.35s ease;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+      <span style="font-weight: 800; font-size: 1.1rem;">MAKE <span class="text-red">XORA</span></span>
+      <button id="drawerClose" style="background: none; border: none; color: #fff; font-size: 1.6rem; cursor: pointer;">&times;</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px; font-size: 1rem;">
+      <a href="index.html">Home</a>
+      <a href="services.html">All Services</a>
+      <a href="portfolio.html">Case Studies</a>
+      <a href="pricing.html">Pricing Plans</a>
+      <a href="about.html">About Agency</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div style="margin-top: 40px;">
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;">Book Free Audit</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero relative overflow-hidden">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-red-glow" style="position: absolute; width: 450px; height: 450px; background: radial-gradient(circle, rgba(229,9,20,0.14) 0%, transparent 70%); top: 12%; right: 5%; border-radius: 50%; pointer-events: none; z-index: 1;"></div>
+      <div class="container relative z-2">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Comprehensive Service Architecture</div>
+          <h1 class="hero-title">
+            Five Integrated Disciplines. <span class="text-red">One Growth Partner.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Every service is engineered to solve specific business bottlenecks—whether you need dominant Google rankings, active organic social growth, high-converting web engineering, or profitable paid advertising.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILED SERVICE CATEGORIES BREAKDOWN -->
+    <section style="padding: 80px 0;">
+      <div class="container">
+        <div style="display: flex; flex-direction: column; gap: 64px;">
+
+          <!-- CATEGORY 01: SEO & AI SEARCH OPTIMIZATION -->
+          <div id="seo" style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-sm);">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: flex-start;">
+              <div>
+                <span class="section-eyebrow">Category 01</span>
+                <h2 style="font-size: 2.2rem; margin-top: 8px; margin-bottom: 16px;">SEO &amp; AI Search Optimization</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 24px; color: var(--text-secondary);">
+                  Search has evolved. Winning today requires dominating Google's traditional 10 blue links and map packs, while actively securing citations across generative AI surfaces (ChatGPT, Gemini, Perplexity, and Google AI Overviews).
+                </p>
+
+                <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Business Problems Solved:</h4>
+                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">
+                  <li>Invisible on Google for high-intent purchase queries while competitors capture the market.</li>
+                  <li>Declining referral traffic as AI Overviews and answer engines answer buyer queries directly.</li>
+                  <li>Hidden technical crawl errors, poor Core Web Vitals, and fragmented schema data.</li>
+                  <li>Thin or low-quality content that fails Google's helpful content and E-E-A-T guidelines.</li>
+                </ul>
+
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                  <a href="services/seo-ai-search.html" class="btn btn-primary">Deep Dive into SEO &amp; AI Search &rarr;</a>
+                  <a href="contact.html?service=audit" class="btn btn-secondary">Get Free SEO Audit</a>
+                </div>
+              </div>
+
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 32px;">
+                <h4 style="font-size: 1.15rem; margin-bottom: 16px;">Core Deliverables &amp; Sub-Services</h4>
+                <ul style="display: flex; flex-direction: column; gap: 12px; font-size: 0.94rem; color: var(--text-secondary);">
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Full Technical SEO &amp; Core Web Vitals Audit</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Keyword Intent Mapping &amp; Topical Authority</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Local SEO &amp; Google Business Profile Optimization</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Generative Engine Optimization (GEO &amp; AEO)</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Schema.org Structured Data &amp; Entity Alignment</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> High-Authority Backlink Acquisition &amp; Digital PR</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Monthly Rank Tracking &amp; Conversion Attribution</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- CATEGORY 02: SOCIAL MEDIA MANAGEMENT -->
+          <div id="social" style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-sm);">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: flex-start;">
+              <div>
+                <span class="section-eyebrow">Category 02</span>
+                <h2 style="font-size: 2.2rem; margin-top: 8px; margin-bottom: 16px;">Social Media Management</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 24px; color: var(--text-secondary);">
+                  Turn your social media channels into consistent brand builders and customer acquisition engines. We handle the entire creative, production, scheduling, and community engagement workflow so you never have to scramble for content.
+                </p>
+
+                <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Business Problems Solved:</h4>
+                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">
+                  <li>Inconsistent posting schedules that kill algorithm momentum and brand relevance.</li>
+                  <li>Low engagement, poor video production quality, and generic stock imagery.</li>
+                  <li>Founders and marketing leads wasting hours drafting captions and hashtags.</li>
+                  <li>Unanswered customer DMs and comments causing lost sales opportunities.</li>
+                </ul>
+
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                  <a href="services/social-media.html" class="btn btn-primary">Deep Dive into Social Media &rarr;</a>
+                  <a href="pricing.html" class="btn btn-secondary">View Social Retainers</a>
+                </div>
+              </div>
+
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 32px;">
+                <h4 style="font-size: 1.15rem; margin-bottom: 16px;">Core Deliverables &amp; Platforms</h4>
+                <ul style="display: flex; flex-direction: column; gap: 12px; font-size: 0.94rem; color: var(--text-secondary);">
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Custom Reels &amp; Short-Form Video Production</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Full Monthly Editorial Content Calendar</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Professional Graphic Design &amp; Carousel Posts</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> SEO-Optimized Caption Writing &amp; Hashtag Research</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Scheduled Publishing Across All Channels</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Daily Comment &amp; DM Community Management</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Meta, TikTok, YouTube Shorts, LinkedIn &amp; Pinterest</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- CATEGORY 03: MEDIA BUYING & PAID ADS -->
+          <div id="ads" style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-sm);">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: flex-start;">
+              <div>
+                <span class="section-eyebrow">Category 03</span>
+                <h2 style="font-size: 2.2rem; margin-top: 8px; margin-bottom: 16px;">Media Buying &amp; Paid Advertising</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 24px; color: var(--text-secondary);">
+                  Turn advertising spend into predictable revenue. We design, launch, and manage data-driven Google Ads and Meta Ads campaigns built around conversion value, tight audience segmentation, and maximum ROAS.
+                </p>
+
+                <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Business Problems Solved:</h4>
+                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">
+                  <li>High ad spend yielding low-intent clicks and unprofitable acquisition costs.</li>
+                  <li>Inaccurate pixel tracking and broken attribution following iOS privacy changes.</li>
+                  <li>Ad creative fatigue and failure to test dynamic angles systematically.</li>
+                  <li>Wasted search budget on broad-match keywords with zero commercial intent.</li>
+                </ul>
+
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                  <a href="services/paid-advertising.html" class="btn btn-primary">Deep Dive into Media Buying &rarr;</a>
+                  <a href="contact.html?service=ads" class="btn btn-secondary">Request Campaign Audit</a>
+                </div>
+              </div>
+
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 32px;">
+                <h4 style="font-size: 1.15rem; margin-bottom: 16px;">Core Channels &amp; Execution</h4>
+                <ul style="display: flex; flex-direction: column; gap: 12px; font-size: 0.94rem; color: var(--text-secondary);">
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Google Search Campaigns (High-Intent Keywords)</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Google Performance Max &amp; Shopping Ads</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Meta Ads (Facebook &amp; Instagram Lead &amp; Sales Funnels)</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Server-Side Conversions API (CAPI) &amp; GA4 Setup</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Full Creative Strategy, Hook Testing &amp; Copy Variations</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Custom Retargeting &amp; Cart Abandonment Funnels</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Real-Time ROAS &amp; Customer Acquisition Cost Reporting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- CATEGORY 04: FULL-STACK WEB DEVELOPMENT -->
+          <div id="dev" style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-sm);">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: flex-start;">
+              <div>
+                <span class="section-eyebrow">Category 04</span>
+                <h2 style="font-size: 2.2rem; margin-top: 8px; margin-bottom: 16px;">Full-Stack Web Development</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 24px; color: var(--text-secondary);">
+                  Your website is your agency's central asset. We engineer custom, responsive, sub-second loading web applications and high-converting e-commerce stores designed for modern user experience and flawless search indexing.
+                </p>
+
+                <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Business Problems Solved:</h4>
+                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">
+                  <li>Outdated, bloated WordPress themes scoring poorly on Google Core Web Vitals.</li>
+                  <li>Clunky checkout flows and slow mobile experiences that kill conversion rates.</li>
+                  <li>Websites built by designers with zero understanding of SEO technical architecture.</li>
+                  <li>Security vulnerabilities, plugin conflicts, and unreliable hosting infrastructure.</li>
+                </ul>
+
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                  <a href="services/web-development.html" class="btn btn-primary">Deep Dive into Web Dev &rarr;</a>
+                  <a href="contact.html?service=web" class="btn btn-secondary">Request Web Consultation</a>
+                </div>
+              </div>
+
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 32px;">
+                <h4 style="font-size: 1.15rem; margin-bottom: 16px;">Technical Capabilities &amp; Platforms</h4>
+                <ul style="display: flex; flex-direction: column; gap: 12px; font-size: 0.94rem; color: var(--text-secondary);">
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Custom Front-End &amp; Back-End Engineering</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Shopify &amp; WooCommerce E-Commerce Development</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> High-Converting Landing Page Design &amp; A/B Testing</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Sub-Second Loading &amp; 90+ Core Web Vitals Optimization</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> CMS Development &amp; Custom Admin Workflows</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> REST API &amp; Third-Party CRM/ERP Integrations</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Enterprise Hosting, Security &amp; Monthly Maintenance</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- CATEGORY 05: CONTENT & CREATIVE STRATEGY -->
+          <div id="content" style="background: var(--bg-card); border: 1px solid var(--border-medium); border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-sm);">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: flex-start;">
+              <div>
+                <span class="section-eyebrow">Category 05</span>
+                <h2 style="font-size: 2.2rem; margin-top: 8px; margin-bottom: 16px;">Content &amp; Creative Strategy</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 24px; color: var(--text-secondary);">
+                  High-performing content bridges the gap between discoverability and conversion. We produce authoritative SEO topic clusters, persuasive website copy, and engaging ad hooks that speak directly to customer pain points.
+                </p>
+
+                <h4 style="margin-bottom: 12px; font-size: 1.1rem;">Business Problems Solved:</h4>
+                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">
+                  <li>Generic, robotic AI copy that fails to engage real human decision-makers.</li>
+                  <li>Articles that fail to rank because they lack topical depth and search intent alignment.</li>
+                  <li>Weak value propositions on landing pages that fail to convert incoming traffic.</li>
+                  <li>Inconsistent brand voice across web, social, and advertising campaigns.</li>
+                </ul>
+
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                  <a href="services/content-strategy.html" class="btn btn-primary">Deep Dive into Content Strategy &rarr;</a>
+                  <a href="contact.html?service=content" class="btn btn-secondary">Request Content Roadmap</a>
+                </div>
+              </div>
+
+              <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 32px;">
+                <h4 style="font-size: 1.15rem; margin-bottom: 16px;">Strategic Deliverables</h4>
+                <ul style="display: flex; flex-direction: column; gap: 12px; font-size: 0.94rem; color: var(--text-secondary);">
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Brand Messaging &amp; Value Proposition Definition</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Research-Backed SEO Content Roadmaps &amp; Clusters</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> High-Converting Website Copywriting (Hero to Footer)</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Ad Copywriting &amp; Hook Ideation for Paid Channels</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Long-Form Case Studies &amp; Lead Magnet Whitepapers</li>
+                  <li style="display: flex; gap: 10px; align-items: center;"><span style="color: var(--brand-red); font-weight: 700;">✓</span> Content Refresh &amp; E-E-A-T Optimization Audits</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Ready to Build an Integrated Growth Engine?</h2>
+          <p>Talk with our strategists to discuss which services match your current business goals and revenue targets.</p>
+          <div class="cta-banner-actions">
+            <a href="contact.html" class="btn btn-primary btn-lg">Request a Free Growth Consultation &rarr;</a>
+            <a href="pricing.html" class="btn btn-secondary btn-lg">View All Pricing &amp; Retainers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- ==========================================================================
+       COSMIC STARDUST FOOTER
+       ========================================================================== -->
+  <footer class="cosmic-footer">
+    <div class="footer-top-stardust"></div>
+    <div class="container">
+      <div class="footer-grid-cols">
+        <div>
+          <a href="index.html" class="nav-brand-badge" style="margin-bottom: 16px;">
+            <img src="assets/brand/makexora-nav-logo.png" alt="Make Xora Logo" class="nav-brand-logo-img">
+            <span class="nav-brand-text" style="font-size: 1.15rem;">MAKE <span class="text-red">XORA</span></span>
+          </a>
+          <p style="font-size: 0.92rem; color: #a1a1aa; line-height: 1.6; max-width: 320px; margin-bottom: 20px;">
+            Unified digital growth agency providing SEO &amp; AI search optimization, organic social media management, media buying, and full-stack web engineering for ambitious global brands.
+          </p>
+          <div style="font-size: 0.85rem; color: #71717a;">
+            Founder: <strong>Md Ataur Rahaman</strong> &bull; Worldwide Coverage
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Core Services</div>
+          <ul class="footer-col-links">
+            <li><a href="services/seo-ai-search.html" class="footer-col-link">SEO &amp; AI Search</a></li>
+            <li><a href="services/social-media.html" class="footer-col-link">Social Media</a></li>
+            <li><a href="services/paid-advertising.html" class="footer-col-link">Media Buying &amp; Ads</a></li>
+            <li><a href="services/web-development.html" class="footer-col-link">Full-Stack Web Dev</a></li>
+            <li><a href="services/content-strategy.html" class="footer-col-link">Content &amp; Creative</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Agency</div>
+          <ul class="footer-col-links">
+            <li><a href="about.html" class="footer-col-link">About Make Xora</a></li>
+            <li><a href="portfolio.html" class="footer-col-link">Case Studies &amp; Proof</a></li>
+            <li><a href="pricing.html" class="footer-col-link">Pricing Plans</a></li>
+            <li><a href="services.html" class="footer-col-link">Service Architecture</a></li>
+            <li><a href="contact.html" class="footer-col-link">Contact &amp; Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Direct Contact</div>
+          <ul class="footer-col-links">
+            <li><a href="mailto:makexora@gmail.com" class="footer-col-link">makexora@gmail.com</a></li>
+            <li><a href="https://wa.me/8801741629978" target="_blank" rel="noopener" class="footer-col-link">+880 1741 629978</a></li>
+            <li style="font-size: 0.85rem; color: #71717a;">Response Time: &lt; 2 Hours</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <div class="footer-social-strip">
+            <a href="https://facebook.com/makexora" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.885v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com/makexora" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324z"/></svg>
+            </a>
+            <a href="https://pinterest.com/makexora" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+            <a href="https://linkedin.com/company/makexora" target="_blank" rel="noopener" class="footer-social-icon" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Make Xora. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#" style="color: #71717a;">Privacy Policy</a>
+          <a href="#" style="color: #71717a;">Terms of Service</a>
+          <a href="#" style="color: #71717a;">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/assistant.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿# Dependencies & Logs
+node_modules/
+*.log
+
+# Dev & Temp
+scratch/
+.gemini/
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
