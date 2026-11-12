@@ -6,6 +6,8 @@ node_modules/
 scratch/
 .gemini/
 .vscode/
+deploy.ps1
+*.env
 
 # OS Files
 .DS_Store
