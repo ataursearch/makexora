@@ -378,17 +378,16 @@
     });
   }
 
-  // ======================================================================
   // ==========================================================================
   // 8. HERO CARDS STEPPER CONTROLLER
   // ==========================================================================
   function initHeroCardsStepper() {
-    const step1 = document.getElementById('heroStep1');
-    const step2 = document.getElementById('heroStep2');
-    const prevBtn = document.getElementById('heroPrevBtn');
-    const nextBtn = document.getElementById('heroNextBtn');
-    const deck1 = document.getElementById('heroCardDeck1');
-    const deck2 = document.getElementById('heroCardDeck2');
+    const step1 = document.getElementById('featStep1') || document.getElementById('heroStep1');
+    const step2 = document.getElementById('featStep2') || document.getElementById('heroStep2');
+    const prevBtn = document.getElementById('featPrevBtn') || document.getElementById('heroPrevBtn');
+    const nextBtn = document.getElementById('featNextBtn') || document.getElementById('heroNextBtn');
+    const deck1 = document.getElementById('featCardsDeck1') || document.getElementById('heroCardDeck1');
+    const deck2 = document.getElementById('featCardsDeck2') || document.getElementById('heroCardDeck2');
 
     if (!deck1 || !deck2) return;
 
@@ -403,7 +402,7 @@
         deck2.style.transform = 'translateX(10px)';
         setTimeout(() => {
           deck2.style.display = 'none';
-          deck1.style.display = 'grid';
+          deck1.style.display = 'flex';
           setTimeout(() => {
             deck1.style.opacity = '1';
             deck1.style.transform = 'translateX(0)';
@@ -416,7 +415,7 @@
         deck1.style.transform = 'translateX(-10px)';
         setTimeout(() => {
           deck1.style.display = 'none';
-          deck2.style.display = 'grid';
+          deck2.style.display = 'flex';
           setTimeout(() => {
             deck2.style.opacity = '1';
             deck2.style.transform = 'translateX(0)';
@@ -431,7 +430,7 @@
     if (nextBtn) nextBtn.addEventListener('click', () => goToStep(currentStep === 1 ? 2 : 1));
   }
 
-====
+  // ==========================================================================
   // DOM READY INITIALIZATION
   // ==========================================================================
   document.addEventListener('DOMContentLoaded', () => {
