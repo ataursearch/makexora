@@ -30,6 +30,20 @@
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/redesign.css">
 
+  <!-- Immediate Theme Engine -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('makexora-theme');
+        if (saved === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
@@ -54,6 +68,23 @@
   </script>
 </head>
 <body>
+
+  <!-- ==========================================================================
+       FLOATING MINI ROPE WITH LITTLE BALL THEME TOGGLE (LIGHT & DARK MODE)
+       ========================================================================== -->
+  <div class="theme-cord-wrapper" id="themeCord" aria-label="Toggle light and dark mode" role="button" tabindex="0" title="Pull or click cord to toggle Light / Dark Mode">
+    <div class="theme-cord-mount"></div>
+    <div class="theme-cord-line" id="themeCordLine"></div>
+    <div class="theme-cord-ball" id="themeCordBall">
+      <div class="theme-cord-icon theme-cord-icon-moon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </div>
+      <div class="theme-cord-icon theme-cord-icon-sun">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </div>
+    </div>
+    <div class="theme-cord-tooltip" id="themeCordTooltip">Pull Cord</div>
+  </div>
 
   <!-- ==========================================================================
        STICKY HEADER NAVIGATION (MATCHING REFERENCE MOCKUP)

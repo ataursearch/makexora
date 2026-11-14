@@ -354,6 +354,7 @@ body {
     opacity: 0.75;
     transform: translate(-50%, -50%) scale(0.95);
   }
+
   100% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.08);
@@ -364,6 +365,7 @@ body {
   0% {
     transform: translate(-50%, -50%) rotate(-12deg) scale(0.97);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(-8deg) scale(1.03);
   }
@@ -373,6 +375,7 @@ body {
   0% {
     transform: translate(-50%, -50%) rotate(-35deg) scale(1.03);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(-30deg) scale(0.96);
   }
@@ -382,6 +385,7 @@ body {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }
+
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
@@ -1340,4 +1344,471 @@ body {
   .ref-footer-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ==========================================================================
+   FLOATING MINI ROPE WITH LITTLE BALL THEME TOGGLE (LIGHT & DARK MODE)
+   ========================================================================== */
+.theme-cord-wrapper {
+  position: fixed;
+  top: 0;
+  right: 28px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
+  transform-origin: top center;
+  animation: cordFloatSway 6s ease-in-out infinite alternate;
+}
+
+.theme-cord-wrapper:active,
+.theme-cord-wrapper.pulling {
+  cursor: grabbing;
+  animation: none;
+}
+
+@keyframes cordFloatSway {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  33% {
+    transform: rotate(2deg);
+  }
+
+  66% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.theme-cord-mount {
+  width: 14px;
+  height: 6px;
+  background: var(--brand-red);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+}
+
+.theme-cord-line {
+  width: 2.5px;
+  height: 65px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, #e50914 50%, #ff1e27 100%);
+  box-shadow: 0 0 6px rgba(229, 9, 20, 0.6);
+  transform-origin: top center;
+  transition: height 0.05s linear;
+}
+
+.theme-cord-wrapper.snapping .theme-cord-line {
+  transition: height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.35);
+}
+
+.theme-cord-ball {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #ff1e27 45%, #8b0008 100%);
+  box-shadow: 0 0 16px rgba(229, 9, 20, 0.85), 0 4px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.05s linear, box-shadow 0.25s ease;
+}
+
+.theme-cord-wrapper.snapping .theme-cord-ball {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.35);
+}
+
+.theme-cord-ball:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px rgba(229, 9, 20, 1), 0 6px 14px rgba(0, 0, 0, 0.6);
+}
+
+.theme-cord-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.theme-cord-icon-moon {
+  opacity: 1;
+}
+
+.theme-cord-icon-sun {
+  opacity: 0;
+}
+
+/* In light mode, show sun inside ball */
+[data-theme="light"] .theme-cord-icon-moon {
+  opacity: 0;
+}
+
+[data-theme="light"] .theme-cord-icon-sun {
+  opacity: 1;
+}
+
+.theme-cord-tooltip {
+  position: absolute;
+  top: 100%;
+  margin-top: 10px;
+  background: rgba(14, 15, 22, 0.92);
+  border: 1px solid rgba(229, 9, 20, 0.5);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+}
+
+.theme-cord-wrapper:hover .theme-cord-tooltip,
+.theme-cord-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .theme-cord-wrapper {
+    right: 18px;
+  }
+}
+
+/* ==========================================================================
+   LIGHT MODE DESIGN SPECIFICATION (BLACK, RED & WHITE COHESION)
+   Crisp Clean White Void (#f8f9fb), Obsidian Black Text (#0a0a0d),
+   Electric Red Highlights (#e50914, #ff1e27), and Pure White Glass Cards
+   ========================================================================== */
+html[data-theme="light"] {
+  --bg-deep-void: #f8f9fb;
+  --bg-surface: #ffffff;
+  --bg-card-glass: rgba(255, 255, 255, 0.92);
+  --bg-card-hover: rgba(255, 255, 255, 1);
+  --text-white: #0a0a0d;
+  --text-dim: #3f3f46;
+  --text-muted: #71717a;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] body {
+  background-color: #f8f9fb !important;
+  color: #0a0a0d !important;
+}
+
+html[data-theme="light"] .ref-heading,
+html[data-theme="light"] .ref-hero-main-title,
+html[data-theme="light"] .ref-cta-card-title,
+html[data-theme="light"] .ref-service-title,
+html[data-theme="light"] .ref-blog-title,
+html[data-theme="light"] .ref-feature-name,
+html[data-theme="light"] .ref-process-step-title,
+html[data-theme="light"] .white-canvas-title,
+html[data-theme="light"] .bento-card-title,
+html[data-theme="light"] .price-big-number,
+html[data-theme="light"] .price-card-title,
+html[data-theme="light"] .faq-trigger-btn span,
+html[data-theme="light"] .ref-nav-brand-text,
+html[data-theme="light"] .ref-nav-link {
+  color: #0a0a0d !important;
+}
+
+html[data-theme="light"] .ref-subheading,
+html[data-theme="light"] .ref-hero-main-desc,
+html[data-theme="light"] .ref-cta-card-desc,
+html[data-theme="light"] .ref-service-desc,
+html[data-theme="light"] .ref-process-step-desc,
+html[data-theme="light"] .white-canvas-lead,
+html[data-theme="light"] .faq-body-text,
+html[data-theme="light"] .ref-subhero-desc,
+html[data-theme="light"] .price-card-for {
+  color: #3f3f46 !important;
+}
+
+/* Light Mode Navbar */
+html[data-theme="light"] .ref-navbar-header {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .ref-nav-link:hover,
+html[data-theme="light"] .ref-nav-link.active {
+  color: var(--brand-red) !important;
+}
+
+html[data-theme="light"] .ref-nav-dropdown {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-top: 2px solid var(--brand-red) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+html[data-theme="light"] .ref-dropdown-item {
+  color: #27272a !important;
+}
+
+html[data-theme="light"] .ref-dropdown-item:hover {
+  background: rgba(229, 9, 20, 0.08) !important;
+  color: var(--brand-red) !important;
+}
+
+html[data-theme="light"] .ref-dropdown-icon {
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Light Mode Hero */
+html[data-theme="light"] .ref-hero-section {
+  background: radial-gradient(circle at 50% 32%, rgba(229, 9, 20, 0.18) 0%, rgba(229, 9, 20, 0.06) 40%, rgba(248, 249, 251, 0) 72%), #f8f9fb !important;
+}
+
+html[data-theme="light"] .ref-hero-eyebrow-badge {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #0a0a0d !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-top: 2px solid var(--brand-red) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+html[data-theme="light"] .ref-hero-trust-item {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-top: 1.5px solid var(--brand-red) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+html[data-theme="light"] .ref-trust-num {
+  color: #0a0a0d !important;
+}
+
+html[data-theme="light"] .ref-trust-lbl {
+  color: #52525b !important;
+}
+
+html[data-theme="light"] .ref-hero-bg-ring-main {
+  border-color: rgba(229, 9, 20, 0.45) !important;
+  box-shadow: 0 0 25px rgba(229, 9, 20, 0.35) !important;
+}
+
+html[data-theme="light"] .ref-hero-bg-ring-outer {
+  border-color: rgba(229, 9, 20, 0.25) !important;
+}
+
+html[data-theme="light"] .ref-subhero-bar {
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .ref-subhero-tagline {
+  color: #0a0a0d !important;
+}
+
+html[data-theme="light"] .ref-subhero-social-btn {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #27272a !important;
+}
+
+html[data-theme="light"] .ref-subhero-social-btn:hover {
+  background: var(--brand-red) !important;
+  color: #ffffff !important;
+}
+
+/* Light Mode Platform Logos */
+html[data-theme="light"] .ref-platforms-strip {
+  background: #f1f3f7 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html[data-theme="light"] .ref-platform-logo {
+  color: #18181b !important;
+}
+
+/* Light Mode About Section */
+html[data-theme="light"] .ref-about-section {
+  background: #ffffff !important;
+}
+
+html[data-theme="light"] .ref-stat-box {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-left: 3.5px solid var(--brand-red) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+html[data-theme="light"] .ref-stat-num {
+  color: #0a0a0d !important;
+}
+
+html[data-theme="light"] .ref-stat-label {
+  color: #52525b !important;
+}
+
+/* Light Mode Services Section */
+html[data-theme="light"] .ref-services-section {
+  background: #f8f9fb !important;
+}
+
+html[data-theme="light"] .ref-service-card {
+  background: radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.08) 0%, rgba(255, 255, 255, 0.98) 60%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-top: 2px solid var(--brand-red) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+html[data-theme="light"] .ref-service-card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1), 0 0 25px rgba(229, 9, 20, 0.2) !important;
+}
+
+html[data-theme="light"] .ref-service-number {
+  color: #71717a !important;
+}
+
+/* Light Mode Blog Section */
+html[data-theme="light"] .ref-blog-section {
+  background: #ffffff !important;
+}
+
+html[data-theme="light"] .ref-blog-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+html[data-theme="light"] .ref-blog-card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 0 20px rgba(229, 9, 20, 0.15) !important;
+}
+
+/* Light Mode Why Choose Us */
+html[data-theme="light"] .ref-why-section {
+  background: #f8f9fb !important;
+}
+
+html[data-theme="light"] .ref-feature-item {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+html[data-theme="light"] .ref-feature-item:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08), 0 0 18px rgba(229, 9, 20, 0.12) !important;
+}
+
+/* Light Mode Process Timeline */
+html[data-theme="light"] .ref-process-section {
+  background: #ffffff !important;
+}
+
+html[data-theme="light"] .ref-process-circle-badge {
+  background: #ffffff !important;
+  color: #0a0a0d !important;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.25), 0 4px 14px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Light Mode Pricing Section */
+html[data-theme="light"] .pricing-section {
+  background: #f8f9fb !important;
+}
+
+html[data-theme="light"] .pricing-switcher-pill {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .pricing-switcher-btn {
+  color: #52525b !important;
+}
+
+html[data-theme="light"] .pricing-switcher-btn.active {
+  background: #ffffff !important;
+  color: #0a0a0d !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="light"] .price-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+}
+
+html[data-theme="light"] .price-card.featured {
+  border-color: var(--brand-red) !important;
+  box-shadow: 0 12px 36px rgba(229, 9, 20, 0.2) !important;
+}
+
+html[data-theme="light"] .spec-label {
+  color: #52525b !important;
+}
+
+html[data-theme="light"] .spec-val {
+  color: #0a0a0d !important;
+}
+
+/* Light Mode FAQ Section */
+html[data-theme="light"] .faq-section {
+  background: #ffffff !important;
+}
+
+html[data-theme="light"] .faq-card-item {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+html[data-theme="light"] .faq-trigger-btn {
+  color: #0a0a0d !important;
+}
+
+/* Light Mode Sector Cards & Proven Results */
+html[data-theme="light"] .use-case-card,
+html[data-theme="light"] .white-canvas-section,
+html[data-theme="light"] .bento-card {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+html[data-theme="light"] .use-case-title,
+html[data-theme="light"] .bento-card-title {
+  color: #0a0a0d !important;
+}
+
+html[data-theme="light"] .use-case-list li {
+  color: #3f3f46 !important;
+}
+
+/* Light Mode Footer stays deep dark / obsidian anchor */
+html[data-theme="light"] .ref-footer {
+  background: #090a0f !important;
+  color: #d4d4d8 !important;
+}
+
+html[data-theme="light"] .ref-footer-tagline,
+html[data-theme="light"] .ref-footer-link,
+html[data-theme="light"] .ref-footer-contact-item {
+  color: #a1a1aa !important;
+}
+
+html[data-theme="light"] .ref-footer-link:hover {
+  color: #ffffff !important;
 }
