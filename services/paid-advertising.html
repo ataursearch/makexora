@@ -16,17 +16,17 @@
     (function() {
       try {
         var saved = localStorage.getItem('makexora-theme');
-        if (saved === 'dark') {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
+        if (saved === 'light') {
           document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
         }
       } catch (e) {}
     })();
   </script>
 
   <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/redesign.css">
+  <link rel="stylesheet" href="../assets/css/redesign.css?v=3.1.0">
 </head>
 <body>
   <!-- ==========================================================================
@@ -436,7 +436,7 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/main.js?v=3.1.0"></script>
   <script src="../assets/js/assistant.js"></script>
 </body>
 </html>

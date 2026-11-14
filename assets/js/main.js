@@ -509,16 +509,31 @@
     requestAnimationFrame(animateOrbit);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    initFloatingNav();
-    initHeroSlider();
-    initBentoSpotlight();
-    initDottedGlobe();
-    initPlayground();
-    initPricingSwitcher();
-    initFaq();
-    initHeroCardsStepper();
-    initSolarSystemOrbit();
-  });
+  function safeInit(name, fn) {
+    try {
+      fn();
+    } catch (err) {
+      console.warn('[MakeXora] Error in ' + name + ':', err);
+    }
+  }
+
+  function startApp() {
+    safeInit('FloatingNav', initFloatingNav);
+    safeInit('HeroSlider', initHeroSlider);
+    safeInit('BentoSpotlight', initBentoSpotlight);
+    safeInit('DottedGlobe', initDottedGlobe);
+    safeInit('Playground', initPlayground);
+    safeInit('PricingSwitcher', initPricingSwitcher);
+    safeInit('Faq', initFaq);
+    safeInit('HeroCardsStepper', initHeroCardsStepper);
+    safeInit('SolarSystemOrbit', initSolarSystemOrbit);
+  }
+
+  // Trigger immediately if DOM is already interactive/complete, otherwise wait for DOMContentLoaded
+  if (document.readyState !== 'loading') {
+    startApp();
+  } else {
+    document.addEventListener('DOMContentLoaded', startApp);
+  }
 
 })();
