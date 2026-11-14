@@ -431,8 +431,84 @@
   }
 
   // ==========================================================================
-  // DOM READY INITIALIZATION
+  // SOLAR-SYSTEM PLANETARY ORBIT ENGINE (TRUE 3D COPLANAR MOVEMENT)
+  // All 6 service planets move around the central MX sun on a fixed elliptical track
+  // with mathematical lock, smooth 3D depth-sorting (scale & z-index), and hover pause.
   // ==========================================================================
+  function initSolarSystemOrbit() {
+    const stage = document.querySelector('.solar-system-stage');
+    const planets = document.querySelectorAll('.solar-planet-orbit-wrapper');
+    if (!stage || !planets.length) return;
+
+    // Fixed mathematical orbit parameters matching SVG ellipse exactly
+    const cx = 340; // Center X in stage coordinate space (680px wide)
+    const cy = 210; // Center Y in stage coordinate space (420px high)
+    const rx = 260; // Horizontal semi-major radius
+    const ry = 130; // Vertical semi-minor radius (0.5 perspective tilt)
+
+    // Base orbital period: 48 seconds for a full 360-degree revolution
+    const totalDuration = 48000; // ms
+    let startTime = null;
+    let isPaused = false;
+    let pauseOffset = 0;
+    let pauseStart = 0;
+
+    // Hover listeners to pause/slow down orbit for easy interaction
+    stage.addEventListener('mouseenter', () => {
+      isPaused = true;
+      pauseStart = performance.now();
+    });
+    stage.addEventListener('mouseleave', () => {
+      if (isPaused) {
+        pauseOffset += performance.now() - pauseStart;
+        isPaused = false;
+      }
+    });
+
+    // 60-degree equal staggering, starting with SEO at -90deg (top / 12 o'clock)
+    const baseOffsets = [
+      -Math.PI / 2,                          // Planet 0: SEO (~12:00 / top)
+      -Math.PI / 2 + Math.PI / 3,            // Planet 1: Paid Advertising (~2:00)
+      -Math.PI / 2 + (2 * Math.PI) / 3,      // Planet 2: Content Marketing (~4:30)
+      -Math.PI / 2 + Math.PI,                // Planet 3: Social Media Marketing (~6:00 / bottom)
+      -Math.PI / 2 + (4 * Math.PI) / 3,      // Planet 4: Web Development (~7:30)
+      -Math.PI / 2 + (5 * Math.PI) / 3       // Planet 5: Growth Strategy (~10:00)
+    ];
+
+    function animateOrbit(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const effectiveTime = isPaused
+        ? (pauseStart - startTime - pauseOffset)
+        : (timestamp - startTime - pauseOffset);
+
+      const progress = (effectiveTime % totalDuration) / totalDuration;
+      const angleDelta = progress * 2 * Math.PI;
+
+      planets.forEach((planet, i) => {
+        const theta = baseOffsets[i] + angleDelta;
+        const x = cx + rx * Math.cos(theta);
+        const y = cy + ry * Math.sin(theta);
+
+        // 3D Depth Sorting:
+        // When y < cy, planet is on far side behind the sun.
+        // When y >= cy, planet is on near side in front of the sun.
+        const normalizedY = (y - (cy - ry)) / (2 * ry); // 0 (furthest back) to 1 (closest front)
+        const scale = 0.86 + 0.22 * normalizedY; // 0.86 (back) to 1.08 (front)
+        const isBehindSun = y < cy;
+
+        // Position sphere center exactly on (x, y)
+        // Planet wrapper is 86px wide, so center offset is 43px
+        planet.style.transform = `translate3d(${(x - 43).toFixed(2)}px, ${(y - 43).toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
+        planet.style.zIndex = isBehindSun ? '4' : '10';
+        planet.style.opacity = (0.85 + 0.15 * normalizedY).toFixed(2);
+      });
+
+      requestAnimationFrame(animateOrbit);
+    }
+
+    requestAnimationFrame(animateOrbit);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initFloatingNav();
     initHeroSlider();
@@ -442,6 +518,7 @@
     initPricingSwitcher();
     initFaq();
     initHeroCardsStepper();
+    initSolarSystemOrbit();
   });
 
 })();

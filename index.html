@@ -276,7 +276,7 @@
             <!-- Ambient Volumetric Red Atmosphere Glow -->
             <div class="solar-ambient-glow"></div>
 
-            <!-- Concentric Orbital Track Rings SVG Layer (Tilted Perspective Multi-Ring System) -->
+            <!-- Concentric Orbital Track Rings SVG Layer (Coplanar True Solar System Plane) -->
             <svg class="solar-rings-svg" viewBox="0 0 680 420" fill="none">
               <defs>
                 <filter id="solarNeonGlow" x="-30%" y="-30%" width="160%" height="160%">
@@ -286,50 +286,46 @@
                     <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
-                <linearGradient id="solarOrbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#E50914" stop-opacity="0.95" />
-                  <stop offset="35%" stop-color="#FFFFFF" stop-opacity="0.9" />
-                  <stop offset="65%" stop-color="#E50914" stop-opacity="0.5" />
-                  <stop offset="100%" stop-color="#B00000" stop-opacity="0.15" />
+                <linearGradient id="solarOrbitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#E50914" stop-opacity="0.8" />
+                  <stop offset="25%" stop-color="#FFFFFF" stop-opacity="0.9" />
+                  <stop offset="50%" stop-color="#E50914" stop-opacity="0.9" />
+                  <stop offset="75%" stop-color="#FFFFFF" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#E50914" stop-opacity="0.8" />
                 </linearGradient>
                 <linearGradient id="flareGrad" x1="0%" y1="50%" x2="100%" y2="50%">
                   <stop offset="0%" stop-color="#E50914" stop-opacity="0" />
-                  <stop offset="30%" stop-color="#E50914" stop-opacity="0.5" />
+                  <stop offset="35%" stop-color="#E50914" stop-opacity="0.6" />
                   <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.95" />
-                  <stop offset="70%" stop-color="#E50914" stop-opacity="0.5" />
+                  <stop offset="65%" stop-color="#E50914" stop-opacity="0.6" />
                   <stop offset="100%" stop-color="#E50914" stop-opacity="0" />
                 </linearGradient>
               </defs>
 
               <!-- Anamorphic Center Lens Flare Laser Line -->
-              <line x1="90" y1="210" x2="590" y2="210" stroke="url(#flareGrad)" stroke-width="2.5" filter="url(#solarNeonGlow)" />
+              <line x1="80" y1="210" x2="600" y2="210" stroke="url(#flareGrad)" stroke-width="2.5" filter="url(#solarNeonGlow)" />
 
-              <!-- Outer Orbital Ring (Layer 1 - Rotates every 45s) -->
+              <!-- Outer Orbital Track Ring (Coplanar: rx=320, ry=160, center=340,210) -->
               <g class="solar-ring-group-outer">
-                <ellipse cx="340" cy="210" rx="318" ry="162" stroke="rgba(229, 9, 20, 0.45)" stroke-width="1.5" stroke-dasharray="14 10 35 12" />
-                <ellipse cx="340" cy="210" rx="310" ry="158" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" stroke-dasharray="3 14" />
-                <circle cx="650" cy="210" r="3.5" fill="#FFFFFF" filter="url(#solarNeonGlow)" />
-                <circle cx="30" cy="210" r="3" fill="#E50914" filter="url(#solarNeonGlow)" />
+                <ellipse cx="340" cy="210" rx="320" ry="160" stroke="rgba(229, 9, 20, 0.35)" stroke-width="1.5" stroke-dasharray="16 12 36 14" class="solar-dash-stream-slow" />
+                <ellipse cx="340" cy="210" rx="312" ry="156" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1" stroke-dasharray="4 16" />
+                <circle cx="652" cy="210" r="3.5" fill="#FFFFFF" filter="url(#solarNeonGlow)" />
+                <circle cx="28" cy="210" r="3" fill="#E50914" filter="url(#solarNeonGlow)" />
               </g>
 
-              <!-- Secondary Gyroscopic Ring (Slanted isometric tilt - Rotates every 60s) -->
-              <g class="solar-ring-group-slant">
-                <ellipse cx="340" cy="210" rx="292" ry="124" stroke="rgba(229, 9, 20, 0.35)" stroke-width="1.5" stroke-dasharray="16 22" />
-              </g>
-
-              <!-- Mid Orbital Ring (Layer 2 - Planet Orbit Trajectory, Rotates every 30s) -->
+              <!-- PRIMARY PLANET ORBIT TRACK (Coplanar: rx=260, ry=130, center=340,210) -->
+              <!-- All 6 service planets are mathematically locked to this exact ellipse -->
               <g class="solar-ring-group-mid">
-                <ellipse cx="340" cy="210" rx="262" ry="132" stroke="url(#solarOrbitGrad)" stroke-width="2.2" stroke-dasharray="70 18 140 22" filter="url(#solarNeonGlow)" />
-                <ellipse cx="340" cy="210" rx="254" ry="128" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" stroke-dasharray="4 8" />
-                <circle cx="340" cy="78" r="4" fill="#FFFFFF" filter="url(#solarNeonGlow)" />
-                <circle cx="340" cy="342" r="3.5" fill="#E50914" filter="url(#solarNeonGlow)" />
+                <ellipse cx="340" cy="210" rx="260" ry="130" stroke="url(#solarOrbitGrad)" stroke-width="2.2" filter="url(#solarNeonGlow)" opacity="0.85" />
+                <ellipse cx="340" cy="210" rx="260" ry="130" stroke="#FFFFFF" stroke-width="1.2" stroke-dasharray="8 24" class="solar-dash-stream-fast" />
+                <ellipse cx="340" cy="210" rx="252" ry="126" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="3 8" />
               </g>
 
-              <!-- Inner Orbital Ring (Layer 3 - High-tech HUD Dash, Rotates every 55s) -->
+              <!-- Inner Orbital Track Ring (Coplanar: rx=170, ry=85, center=340,210) -->
               <g class="solar-ring-group-inner">
-                <ellipse cx="340" cy="210" rx="168" ry="86" stroke="rgba(229, 9, 20, 0.85)" stroke-width="2" stroke-dasharray="30 12 15 12" filter="url(#solarNeonGlow)" />
-                <ellipse cx="340" cy="210" rx="160" ry="82" stroke="rgba(255, 255, 255, 0.35)" stroke-width="1" />
-                <circle cx="508" cy="210" r="3" fill="#FFFFFF" />
+                <ellipse cx="340" cy="210" rx="170" ry="85" stroke="rgba(229, 9, 20, 0.8)" stroke-width="1.8" stroke-dasharray="24 10 12 10" filter="url(#solarNeonGlow)" class="solar-dash-stream-mid" />
+                <ellipse cx="340" cy="210" rx="162" ry="81" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" />
+                <circle cx="502" cy="210" r="2.5" fill="#FFFFFF" />
               </g>
             </svg>
 

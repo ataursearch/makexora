@@ -543,7 +543,7 @@ body {
 /* --------------------------------------------------------------------------
    SOLAR-SYSTEM HERO VISUAL (MAKE XORA FLOATING ANIMATED ORBIT SYSTEM)
    Central Sun (MX Identity) + 6 Revolving Service Planets + Concentric Rings
-   Accurate 3D Obsidian Glass Orbs, Glowing Corona, and Anamorphic Laser Flare
+   Coplanar Solar-System Geometry, 3D Depth Sorting, Mathematical Orbit Lock
    -------------------------------------------------------------------------- */
 .ref-hero-right-visual {
   display: flex;
@@ -564,6 +564,7 @@ body {
   align-items: center;
   justify-content: center;
   animation: solarFloat 7s ease-in-out infinite alternate;
+  cursor: default;
 }
 
 /* Ambient Volumetric Red Aura */
@@ -580,7 +581,7 @@ body {
   z-index: 1;
 }
 
-/* Orbital Rings SVG Layer */
+/* Orbital Rings SVG Layer: Completely stable, coplanar in perspective space */
 .solar-rings-svg {
   position: absolute;
   top: 0;
@@ -591,24 +592,22 @@ body {
   z-index: 2;
 }
 
-.solar-ring-group-outer {
-  transform-origin: 340px 210px;
-  animation: ringRotateCW 45s linear infinite;
+/* Light Stream Animations along stationary orbital paths */
+.solar-dash-stream-fast {
+  animation: orbitDashStream 18s linear infinite;
 }
 
-.solar-ring-group-slant {
-  transform-origin: 340px 210px;
-  transform: rotate(-14deg);
+.solar-dash-stream-mid {
+  animation: orbitDashStream 28s linear infinite;
 }
 
-.solar-ring-group-mid {
-  transform-origin: 340px 210px;
-  animation: ringRotateCW 30s linear infinite;
+.solar-dash-stream-slow {
+  animation: orbitDashStream 42s linear infinite;
 }
 
-.solar-ring-group-inner {
-  transform-origin: 340px 210px;
-  animation: ringRotateCW 55s linear infinite;
+@keyframes orbitDashStream {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -1000; }
 }
 
 /* --------------------------------------------------------------------------
@@ -742,22 +741,21 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 88px;
-  height: 88px;
+  width: 86px;
+  height: 86px;
   pointer-events: none;
-  offset-path: path("M 340, 78 a 262,132 0 1,1 0,264 a 262,132 0 1,1 0,-264");
-  offset-rotate: 0deg; /* CRITICAL: KEEPS LABELS AND ICONS UPRIGHT */
-  offset-anchor: 50% 50%;
-  animation: orbitRevolveCW 48s linear infinite;
+  will-change: transform, opacity;
+  transform-origin: center center;
 }
 
-/* Equal 60-degree staggering (48s / 6 = 8s per planet) */
-.planet-pos-1 { animation-delay: -3s; }
-.planet-pos-2 { animation-delay: -11s; }
-.planet-pos-3 { animation-delay: -19s; }
-.planet-pos-4 { animation-delay: -27s; }
-.planet-pos-5 { animation-delay: -35s; }
-.planet-pos-6 { animation-delay: -43s; }
+/* Default initial static positions on ellipse (340, 210, rx=260, ry=130) */
+/* Prevents layout shift before JavaScript engine kicks in */
+.planet-pos-1 { transform: translate3d(297px, 37px, 0) scale(0.88); z-index: 4; }
+.planet-pos-2 { transform: translate3d(522px, 102px, 0) scale(0.96); z-index: 4; }
+.planet-pos-3 { transform: translate3d(522px, 232px, 0) scale(1.04); z-index: 10; }
+.planet-pos-4 { transform: translate3d(297px, 297px, 0) scale(1.10); z-index: 10; }
+.planet-pos-5 { transform: translate3d(72px, 232px, 0) scale(1.04); z-index: 10; }
+.planet-pos-6 { transform: translate3d(72px, 102px, 0) scale(0.96); z-index: 4; }
 
 .solar-planet-node {
   pointer-events: auto;
@@ -781,12 +779,12 @@ body {
   justify-content: center;
   padding: 6px;
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
 }
 
 .solar-planet-sphere:hover {
-  transform: scale(1.18);
+  transform: scale(1.16);
   border-color: #FF2020;
   box-shadow: 0 0 35px #FF2020, 0 12px 28px rgba(0, 0, 0, 0.95), inset 0 -12px 20px rgba(255, 32, 32, 0.95), inset 0 2px 6px rgba(255, 255, 255, 0.8);
 }
@@ -809,12 +807,11 @@ body {
   justify-content: center;
   margin-bottom: 2px;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.85));
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .solar-planet-sphere:hover .solar-planet-icon {
   transform: scale(1.1);
-  color: #FFFFFF;
 }
 
 .solar-planet-label {
@@ -831,16 +828,6 @@ body {
 @keyframes solarFloat {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-14px); }
-}
-
-@keyframes ringRotateCW {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes orbitRevolveCW {
-  0% { offset-distance: 0%; }
-  100% { offset-distance: 100%; }
 }
 
 @keyframes sunCoronaPulse {
