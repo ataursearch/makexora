@@ -140,8 +140,8 @@
 
       // Draw background atmospheric halo
       const haloGrad = ctx.createRadialGradient(centerX, centerY + radius * 0.4, radius * 0.2, centerX, centerY, radius * 1.15);
-      haloGrad.addColorStop(0, 'rgba(255, 87, 34, 0.18)');
-      haloGrad.addColorStop(0.5, 'rgba(229, 9, 20, 0.08)');
+      haloGrad.addColorStop(0, 'rgba(229, 9, 20, 0.24)');
+      haloGrad.addColorStop(0.5, 'rgba(184, 5, 14, 0.08)');
       haloGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = haloGrad;
       ctx.beginPath();
@@ -188,16 +188,16 @@
           const py = centerY + ry;
 
           // Glowing beacon ring
-          ctx.strokeStyle = `rgba(229, 9, 20, ${0.8 - pulse * 0.4})`;
-          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = `rgba(229, 9, 20, ${0.9 - pulse * 0.4})`;
+          ctx.lineWidth = 1.6;
           ctx.beginPath();
           ctx.arc(px, py, 5 + pulse * 6, 0, Math.PI * 2);
           ctx.stroke();
 
-          // Center solid point
-          ctx.fillStyle = '#ff5722';
+          // Center solid point (stark white beacon)
+          ctx.fillStyle = '#ffffff';
           ctx.beginPath();
-          ctx.arc(px, py, 3.5, 0, Math.PI * 2);
+          ctx.arc(px, py, 3.2, 0, Math.PI * 2);
           ctx.fill();
 
           // Label

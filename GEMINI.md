@@ -13,3 +13,4 @@ Whenever any edit, redesign, copy update, bug fix, or new asset is created in th
    - Confirm that `https://makexora.pages.dev/` and any modified subpages return HTTP 200 OK.
 3. **Local Dev Server:**
    - Ensure `server.ps1` remains active on `http://localhost:3000/` for immediate local inspection.
+

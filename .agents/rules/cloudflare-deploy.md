@@ -5,3 +5,4 @@ Every future modification to the Make Xora website must immediately be pushed to
 powershell -ExecutionPolicy Bypass -File "d:\new website\deploy.ps1" -CommitMessage "<change summary>"
 ```
 Never leave any edits solely local. Always verify the live Cloudflare production endpoint returns HTTP 200.
+
