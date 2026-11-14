@@ -543,6 +543,7 @@ body {
 /* --------------------------------------------------------------------------
    SOLAR-SYSTEM HERO VISUAL (MAKE XORA FLOATING ANIMATED ORBIT SYSTEM)
    Central Sun (MX Identity) + 6 Revolving Service Planets + Concentric Rings
+   Accurate 3D Obsidian Glass Orbs, Glowing Corona, and Anamorphic Laser Flare
    -------------------------------------------------------------------------- */
 .ref-hero-right-visual {
   display: flex;
@@ -550,14 +551,14 @@ body {
   justify-content: center;
   position: relative;
   width: 100%;
-  min-height: 440px;
+  min-height: 480px;
   overflow: visible;
 }
 
 .solar-system-stage {
   position: relative;
-  width: 600px;
-  height: 360px;
+  width: 680px;
+  height: 420px;
   max-width: 100%;
   display: flex;
   align-items: center;
@@ -571,10 +572,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 520px;
-  height: 320px;
-  background: radial-gradient(ellipse at 50% 50%, rgba(229, 9, 20, 0.45) 0%, rgba(176, 0, 0, 0.15) 50%, transparent 75%);
-  filter: blur(48px);
+  width: 620px;
+  height: 380px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(229, 9, 20, 0.5) 0%, rgba(176, 0, 0, 0.2) 48%, transparent 75%);
+  filter: blur(52px);
   pointer-events: none;
   z-index: 1;
 }
@@ -591,17 +592,22 @@ body {
 }
 
 .solar-ring-group-outer {
-  transform-origin: 300px 180px;
+  transform-origin: 340px 210px;
   animation: ringRotateCW 45s linear infinite;
 }
 
+.solar-ring-group-slant {
+  transform-origin: 340px 210px;
+  transform: rotate(-14deg);
+}
+
 .solar-ring-group-mid {
-  transform-origin: 300px 180px;
+  transform-origin: 340px 210px;
   animation: ringRotateCW 30s linear infinite;
 }
 
 .solar-ring-group-inner {
-  transform-origin: 300px 180px;
+  transform-origin: 340px 210px;
   animation: ringRotateCW 55s linear infinite;
 }
 
@@ -613,8 +619,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 146px;
-  height: 146px;
+  width: 172px;
+  height: 172px;
   border-radius: 50%;
   z-index: 6;
   pointer-events: none;
@@ -622,20 +628,34 @@ body {
 
 .solar-sun-corona {
   position: absolute;
-  inset: -14px;
+  inset: -22px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(229, 9, 20, 0.85) 0%, rgba(229, 9, 20, 0.4) 45%, transparent 75%);
-  filter: blur(14px);
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.95) 0%, rgba(229, 9, 20, 0.5) 42%, rgba(176, 0, 0, 0.2) 62%, transparent 78%);
+  filter: blur(18px);
   animation: sunCoronaPulse 4s ease-in-out infinite alternate;
+}
+
+.solar-flare-streak {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, rgba(229, 9, 20, 0.4) 20%, #ff4d4d 45%, #ffffff 50%, #ff4d4d 55%, rgba(229, 9, 20, 0.4) 80%, transparent 100%);
+  filter: blur(1.5px);
+  pointer-events: none;
+  z-index: 1;
+  animation: flarePulse 4s ease-in-out infinite alternate;
 }
 
 .solar-sun-body {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle at 45% 35%, #2a0406 0%, #150203 40%, #080808 85%);
-  border: 2.5px solid #E50914;
-  box-shadow: 0 0 35px #E50914, inset 0 0 25px rgba(229, 9, 20, 0.85);
+  background: radial-gradient(circle at 45% 36%, #ff2a2a 0%, #ba0000 32%, #580003 68%, #160001 92%, #080808 100%);
+  border: 2.5px solid #ff3b3b;
+  box-shadow: 0 0 50px #E50914, 0 0 100px rgba(229, 9, 20, 0.55), inset 0 0 35px #ff2525, inset 0 0 16px rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -643,14 +663,25 @@ body {
   animation: sunBreathing 5s ease-in-out infinite alternate;
 }
 
+.solar-sun-matrix-grid {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 7px 7px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
 .solar-sun-specular {
   position: absolute;
-  top: 2px;
-  left: 15%;
-  width: 70%;
-  height: 35%;
+  top: 3px;
+  left: 14%;
+  width: 72%;
+  height: 38%;
   border-radius: 50%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
   filter: blur(2px);
   pointer-events: none;
 }
@@ -666,29 +697,30 @@ body {
 }
 
 .solar-sun-logo-mx {
-  font-size: 2.1rem;
+  font-size: 2.55rem;
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.04em;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .solar-sun-logo-mx .mx-m {
   color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .solar-sun-logo-mx .mx-x {
-  color: #E50914;
-  text-shadow: 0 0 16px rgba(229, 9, 20, 0.85);
+  color: #FF2020;
+  text-shadow: 0 0 20px rgba(255, 32, 32, 0.95), 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 .solar-sun-tagline {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.58rem;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  font-size: 0.62rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.22em;
   line-height: 1.25;
   color: #FFFFFF;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
@@ -710,10 +742,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 78px;
-  height: 78px;
+  width: 88px;
+  height: 88px;
   pointer-events: none;
-  offset-path: path("M 300, 64 a 226,116 0 1,1 0,232 a 226,116 0 1,1 0,-232");
+  offset-path: path("M 340, 78 a 262,132 0 1,1 0,264 a 262,132 0 1,1 0,-264");
   offset-rotate: 0deg; /* CRITICAL: KEEPS LABELS AND ICONS UPRIGHT */
   offset-anchor: 50% 50%;
   animation: orbitRevolveCW 48s linear infinite;
@@ -737,26 +769,37 @@ body {
 
 .solar-planet-sphere {
   position: relative;
-  width: 74px;
-  height: 74px;
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.25) 0%, rgba(20, 20, 26, 0.96) 45%, #080808 85%);
-  border: 1.5px solid rgba(229, 9, 20, 0.75);
-  box-shadow: 0 0 16px rgba(229, 9, 20, 0.6), inset 0 0 12px rgba(229, 9, 20, 0.35);
+  background: radial-gradient(circle at 38% 28%, #2d303a 0%, #15161e 42%, #06070a 88%);
+  border: 1.5px solid rgba(229, 9, 20, 0.85);
+  box-shadow: 0 0 22px rgba(229, 9, 20, 0.7), 0 10px 22px rgba(0, 0, 0, 0.95), inset 0 -10px 16px rgba(229, 9, 20, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.45);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 6px;
   text-align: center;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .solar-planet-sphere:hover {
-  transform: scale(1.15);
-  border-color: #E50914;
-  box-shadow: 0 0 28px #E50914, inset 0 0 18px rgba(229, 9, 20, 0.8);
+  transform: scale(1.18);
+  border-color: #FF2020;
+  box-shadow: 0 0 35px #FF2020, 0 12px 28px rgba(0, 0, 0, 0.95), inset 0 -12px 20px rgba(255, 32, 32, 0.95), inset 0 2px 6px rgba(255, 255, 255, 0.8);
+}
+
+.solar-planet-specular {
+  position: absolute;
+  top: 4px;
+  left: 18%;
+  width: 64%;
+  height: 32%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.05) 80%, transparent 100%);
+  pointer-events: none;
 }
 
 .solar-planet-icon {
@@ -765,6 +808,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 2px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.85));
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
@@ -774,12 +818,12 @@ body {
 }
 
 .solar-planet-label {
-  font-size: 0.64rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.15;
   letter-spacing: -0.01em;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
   pointer-events: none;
 }
 
@@ -809,16 +853,34 @@ body {
   100% { transform: scale(1.02); }
 }
 
-@media (max-width: 1100px) {
+@keyframes flarePulse {
+  0% { opacity: 0.7; transform: translate(-50%, -50%) scaleX(0.95); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scaleX(1.05); }
+}
+
+@media (min-width: 1440px) {
   .solar-system-stage {
-    transform: scale(0.85);
+    width: 720px;
+    height: 440px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .solar-system-stage {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 1024px) {
+  .solar-system-stage {
+    transform: scale(0.8);
   }
 }
 
 @media (max-width: 640px) {
   .solar-system-stage {
-    transform: scale(0.62);
-    margin: -30px auto;
+    transform: scale(0.56);
+    margin: -40px auto;
   }
   .ref-hero-right-visual {
     min-height: 320px;
