@@ -1,7 +1,7 @@
 /**
  * MAKE XORA — Main Interactive Engine
  * Floating Pill Navbar, 3D Dotted Canvas Globe, Bento Spotlight,
- * Interactive Playground, Pricing Engine & FAQ Accordion
+ * Interactive Playground, Pricing Engine, FAQ Accordion & Hero Slider
  */
 
 (function () {
@@ -11,7 +11,7 @@
   // 1. FLOATING PILL NAVBAR SCROLL HANDLER
   // ==========================================================================
   function initFloatingNav() {
-    const navWrapper = document.querySelector('.floating-nav-wrapper');
+    const navWrapper = document.querySelector('.floating-nav-wrapper') || document.querySelector('.ref-navbar-header');
     if (!navWrapper) return;
 
     window.addEventListener('scroll', () => {
@@ -23,19 +23,21 @@
     }, { passive: true });
 
     // Mobile menu toggle
-    const mobileBtn = document.querySelector('.nav-mobile-btn');
+    const mobileBtn = document.querySelector('.nav-mobile-btn') || document.querySelector('.ref-mobile-nav-toggle');
     const mobileDrawer = document.getElementById('mobileDrawer');
     const drawerClose = document.getElementById('drawerClose');
 
     if (mobileBtn && mobileDrawer) {
       mobileBtn.addEventListener('click', () => {
         mobileDrawer.classList.add('active');
+        mobileDrawer.style.right = '0';
         document.body.style.overflow = 'hidden';
       });
 
       if (drawerClose) {
         drawerClose.addEventListener('click', () => {
           mobileDrawer.classList.remove('active');
+          mobileDrawer.style.right = '-100%';
           document.body.style.overflow = '';
         });
       }
@@ -43,6 +45,7 @@
       mobileDrawer.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           mobileDrawer.classList.remove('active');
+          mobileDrawer.style.right = '-100%';
           document.body.style.overflow = '';
         });
       });
@@ -50,10 +53,51 @@
   }
 
   // ==========================================================================
-  // 2. BENTO CARDS SPOTLIGHT HOVER EFFECT
+  // 2. HERO SLIDER CONTROLS (MOCKUP ACCURATE)
+  // ==========================================================================
+  function initHeroSlider() {
+    const prevBtn = document.getElementById('heroSliderPrev');
+    const nextBtn = document.getElementById('heroSliderNext');
+    const textEl = document.getElementById('heroSliderText');
+
+    if (!textEl) return;
+
+    const slides = [
+      "Turn ideas into impact faster than ever.",
+      "Rank #1 on Google and get cited by ChatGPT.",
+      "Scale your brand with viral high-retention reels.",
+      "Maximize return on ad spend with custom funnels."
+    ];
+
+    let current = 0;
+
+    function updateSlide(idx) {
+      current = (idx + slides.length) % slides.length;
+      textEl.style.opacity = '0';
+      setTimeout(() => {
+        textEl.textContent = slides[current];
+        textEl.style.opacity = '1';
+      }, 150);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => updateSlide(current - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => updateSlide(current + 1));
+    }
+
+    // Auto rotate every 6 seconds
+    setInterval(() => {
+      updateSlide(current + 1);
+    }, 6000);
+  }
+
+  // ==========================================================================
+  // 3. BENTO CARDS SPOTLIGHT HOVER EFFECT
   // ==========================================================================
   function initBentoSpotlight() {
-    const cards = document.querySelectorAll('.bento-card');
+    const cards = document.querySelectorAll('.bento-card, .ref-service-card');
     cards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -66,7 +110,7 @@
   }
 
   // ==========================================================================
-  // 3. 3D DOTTED CANVAS GLOBE (VIDEO 00:18 - 00:22)
+  // 4. 3D DOTTED CANVAS GLOBE (VIDEO 00:18 - 00:22)
   // ==========================================================================
   function initDottedGlobe() {
     const canvas = document.getElementById('globeCanvas');
@@ -222,7 +266,7 @@
   }
 
   // ==========================================================================
-  // 4. INTERACTIVE PLAYGROUND / TOOL DISCOVERY (VIDEO 00:23 - 00:26)
+  // 5. INTERACTIVE PLAYGROUND / TOOL DISCOVERY (VIDEO 00:23 - 00:26)
   // ==========================================================================
   const PLAYGROUND_DATA = {
     "seo": {
@@ -289,7 +333,7 @@
   }
 
   // ==========================================================================
-  // 5. PRICING ENGINE SWITCHER (VIDEO 00:31 - 00:33)
+  // 6. PRICING ENGINE SWITCHER (VIDEO 00:31 - 00:33)
   // ==========================================================================
   function initPricingSwitcher() {
     const buttons = document.querySelectorAll('.pricing-switcher-btn');
@@ -316,7 +360,7 @@
   }
 
   // ==========================================================================
-  // 6. FAQ ACCORDION (VIDEO 00:34 - 00:35)
+  // 7. FAQ ACCORDION (VIDEO 00:34 - 00:35)
   // ==========================================================================
   function initFaq() {
     const items = document.querySelectorAll('.faq-card-item');
@@ -339,6 +383,7 @@
   // ==========================================================================
   document.addEventListener('DOMContentLoaded', () => {
     initFloatingNav();
+    initHeroSlider();
     initBentoSpotlight();
     initDottedGlobe();
     initPlayground();
