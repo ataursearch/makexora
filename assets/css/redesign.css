@@ -541,132 +541,288 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   3. RIGHT VISUAL (3D HOLOGRAPHIC TECHNOLOGY DISC)
+   SOLAR-SYSTEM HERO VISUAL (MAKE XORA FLOATING ANIMATED ORBIT SYSTEM)
+   Central Sun (MX Identity) + 6 Revolving Service Planets + Concentric Rings
    -------------------------------------------------------------------------- */
 .ref-hero-right-visual {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 380px;
+  min-height: 440px;
+  overflow: visible;
 }
 
-.ref-tech-light-dome {
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 270px;
-  height: 310px;
-  background: radial-gradient(ellipse at 50% 80%, rgba(229, 9, 20, 0.5) 0%, rgba(176, 0, 0, 0.18) 40%, transparent 75%);
-  filter: blur(34px);
-  pointer-events: none;
-  z-index: 1;
-  animation: techDomePulse 4s ease-in-out infinite alternate;
+.solar-system-stage {
+  position: relative;
+  width: 600px;
+  height: 360px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: solarFloat 7s ease-in-out infinite alternate;
 }
 
-.ref-tech-light-orb {
+/* Ambient Volumetric Red Aura */
+.solar-ambient-glow {
   position: absolute;
-  top: 32%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #FFFFFF 0%, rgba(255, 110, 115, 0.95) 25%, rgba(229, 9, 20, 0.75) 55%, transparent 75%);
-  filter: blur(14px);
+  width: 520px;
+  height: 320px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(229, 9, 20, 0.45) 0%, rgba(176, 0, 0, 0.15) 50%, transparent 75%);
+  filter: blur(48px);
   pointer-events: none;
-  z-index: 3;
-  animation: techOrbFloat 4s ease-in-out infinite alternate;
+  z-index: 1;
 }
 
-.ref-tech-disc-3d {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  max-width: 90vw;
-  max-height: 90vw;
-  transform: perspective(1000px) rotateX(62deg) rotateZ(-22deg);
-  transform-style: preserve-3d;
-  will-change: transform;
+/* Orbital Rings SVG Layer */
+.solar-rings-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.ref-disc-base-rim {
+.solar-ring-group-outer {
+  transform-origin: 300px 180px;
+  animation: ringRotateCW 45s linear infinite;
+}
+
+.solar-ring-group-mid {
+  transform-origin: 300px 180px;
+  animation: ringRotateCW 30s linear infinite;
+}
+
+.solar-ring-group-inner {
+  transform-origin: 300px 180px;
+  animation: ringRotateCW 55s linear infinite;
+}
+
+/* --------------------------------------------------------------------------
+   CENTRAL SUN (MX DIGITAL MARKETING AGENCY)
+   -------------------------------------------------------------------------- */
+.solar-central-sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 146px;
+  height: 146px;
+  border-radius: 50%;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.solar-sun-corona {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.85) 0%, rgba(229, 9, 20, 0.4) 45%, transparent 75%);
+  filter: blur(14px);
+  animation: sunCoronaPulse 4s ease-in-out infinite alternate;
+}
+
+.solar-sun-body {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2.5px solid rgba(229, 9, 20, 0.5);
-  box-shadow: 0 0 50px rgba(229, 9, 20, 0.6), inset 0 0 40px rgba(229, 9, 20, 0.35);
-  background: radial-gradient(circle, #111111 0%, #080808 80%);
+  background: radial-gradient(circle at 45% 35%, #2a0406 0%, #150203 40%, #080808 85%);
+  border: 2.5px solid #E50914;
+  box-shadow: 0 0 35px #E50914, inset 0 0 25px rgba(229, 9, 20, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: sunBreathing 5s ease-in-out infinite alternate;
 }
 
-.ref-disc-svg {
+.solar-sun-specular {
+  position: absolute;
+  top: 2px;
+  left: 15%;
+  width: 70%;
+  height: 35%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.solar-sun-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  user-select: none;
+}
+
+.solar-sun-logo-mx {
+  font-size: 2.1rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 4px;
+}
+
+.solar-sun-logo-mx .mx-m {
+  color: #FFFFFF;
+}
+
+.solar-sun-logo-mx .mx-x {
+  color: #E50914;
+  text-shadow: 0 0 16px rgba(229, 9, 20, 0.85);
+}
+
+.solar-sun-tagline {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.25;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* --------------------------------------------------------------------------
+   PLANETS TRACK & 6 SERVICE NODES
+   -------------------------------------------------------------------------- */
+.solar-planets-track {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
+  z-index: 5;
 }
 
-.ref-disc-ring-1 {
-  animation: discRotateCW 45s linear infinite;
-}
-
-.ref-disc-ring-2 {
-  animation: discRotateCCW 30s linear infinite;
-}
-
-.ref-disc-ring-3 {
-  animation: discRotateCW 18s linear infinite;
-}
-
-.ref-disc-center-core {
+.solar-planet-orbit-wrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 85px;
-  height: 85px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, #FFFFFF 12%, #E50914 50%, transparent 80%);
-  box-shadow: 0 0 35px #E50914, 0 0 70px rgba(229, 9, 20, 0.9);
-  animation: techCorePulse 2.8s ease-in-out infinite alternate;
-  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 78px;
+  height: 78px;
+  pointer-events: none;
+  offset-path: path("M 300, 64 a 226,116 0 1,1 0,232 a 226,116 0 1,1 0,-232");
+  offset-rotate: 0deg; /* CRITICAL: KEEPS LABELS AND ICONS UPRIGHT */
+  offset-anchor: 50% 50%;
+  animation: orbitRevolveCW 48s linear infinite;
 }
 
-.ref-visual-social-pills {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
+/* Equal 60-degree staggering (48s / 6 = 8s per planet) */
+.planet-pos-1 { animation-delay: -3s; }
+.planet-pos-2 { animation-delay: -11s; }
+.planet-pos-3 { animation-delay: -19s; }
+.planet-pos-4 { animation-delay: -27s; }
+.planet-pos-5 { animation-delay: -35s; }
+.planet-pos-6 { animation-delay: -43s; }
+
+.solar-planet-node {
+  pointer-events: auto;
+  text-decoration: none;
+  display: block;
   width: 100%;
-  margin-top: 10px;
-  padding-right: 20px;
-  z-index: 4;
+  height: 100%;
 }
 
-.ref-hero-social-pill {
-  width: 32px;
-  height: 32px;
+.solar-planet-sphere {
+  position: relative;
+  width: 74px;
+  height: 74px;
   border-radius: 50%;
-  background: #111111;
-  border: 1px solid #292929;
-  color: #FFFFFF;
-  display: inline-flex;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.25) 0%, rgba(20, 20, 26, 0.96) 45%, #080808 85%);
+  border: 1.5px solid rgba(229, 9, 20, 0.75);
+  box-shadow: 0 0 16px rgba(229, 9, 20, 0.6), inset 0 0 12px rgba(229, 9, 20, 0.35);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
+  padding: 5px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-.ref-hero-social-pill:hover {
-  background: #E50914;
+.solar-planet-sphere:hover {
+  transform: scale(1.15);
   border-color: #E50914;
+  box-shadow: 0 0 28px #E50914, inset 0 0 18px rgba(229, 9, 20, 0.8);
+}
+
+.solar-planet-icon {
   color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.solar-planet-sphere:hover .solar-planet-icon {
+  transform: scale(1.1);
+  color: #FFFFFF;
+}
+
+.solar-planet-label {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes solarFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-14px); }
+}
+
+@keyframes ringRotateCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitRevolveCW {
+  0% { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+@keyframes sunCoronaPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes sunBreathing {
+  0% { transform: scale(0.98); }
+  100% { transform: scale(1.02); }
+}
+
+@media (max-width: 1100px) {
+  .solar-system-stage {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 640px) {
+  .solar-system-stage {
+    transform: scale(0.62);
+    margin: -30px auto;
+  }
+  .ref-hero-right-visual {
+    min-height: 320px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -2360,4 +2516,20 @@ html[data-theme="light"] .ref-box-desc {
 html[data-theme="light"] .ref-box-icon-wrap {
   background: rgba(229, 9, 20, 0.08) !important;
   border-color: rgba(229, 9, 20, 0.25) !important;
+}
+
+/* Light Mode Solar System Overrides */
+html[data-theme="light"] .solar-planet-sphere {
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #f4f4f7 50%, #e4e4e9 90%) !important;
+  border-color: rgba(229, 9, 20, 0.7) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 0 12px rgba(229, 9, 20, 0.25) !important;
+}
+
+html[data-theme="light"] .solar-planet-icon {
+  color: #E50914 !important;
+}
+
+html[data-theme="light"] .solar-planet-label {
+  color: #080808 !important;
+  text-shadow: none !important;
 }

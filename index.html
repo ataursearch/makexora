@@ -270,74 +270,167 @@
           </div>
         </div>
 
-        <!-- Right Column: 3D Futuristic Technology Visual -->
-        <div class="ref-hero-right-visual" aria-hidden="true">
-          <!-- Volumetric Light Dome -->
-          <div class="ref-tech-light-dome"></div>
-          <!-- Levitating Energy Orb -->
-          <div class="ref-tech-light-orb"></div>
+        <!-- Right Column: Animated Solar-System Hero Visual (Make Xora MX System) -->
+        <div class="ref-hero-right-visual" aria-label="Make Xora Solar System Animation">
+          <div class="solar-system-stage">
+            <!-- Ambient Volumetric Red Atmosphere Glow -->
+            <div class="solar-ambient-glow"></div>
 
-          <!-- 3D Tilted Concentric Disc Plane -->
-          <div class="ref-tech-disc-3d">
-            <!-- Base Rim -->
-            <div class="ref-disc-base-rim"></div>
+            <!-- Concentric Orbital Track Rings SVG Layer -->
+            <svg class="solar-rings-svg" viewBox="0 0 600 360" fill="none">
+              <defs>
+                <filter id="solarNeonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <linearGradient id="solarOrbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#E50914" stop-opacity="0.9" />
+                  <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.8" />
+                  <stop offset="70%" stop-color="#E50914" stop-opacity="0.4" />
+                  <stop offset="100%" stop-color="#B00000" stop-opacity="0.1" />
+                </linearGradient>
+              </defs>
 
-            <!-- Outer HUD Ring with Distinct Chevrons (<<<<) in Lower-Right -->
-            <svg class="ref-disc-svg ref-disc-ring-1" viewBox="0 0 600 600" fill="none">
-              <circle cx="300" cy="300" r="285" stroke="rgba(229, 9, 20, 0.5)" stroke-width="2" stroke-dasharray="14 8 28 8 6 12" />
-              <circle cx="300" cy="300" r="270" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.5" stroke-dasharray="4 14" />
-              <!-- Chevrons <<<< in the lower-right area exactly as in screenshot -->
-              <g fill="rgba(229, 9, 20, 0.95)">
-                <polygon points="460,320 445,330 460,340" />
-                <polygon points="475,320 460,330 475,340" />
-                <polygon points="490,320 475,330 490,340" />
-                <polygon points="505,320 490,330 505,340" />
+              <!-- Outer Orbital Ring (Layer 1 - Rotates every 45s) -->
+              <g class="solar-ring-group-outer">
+                <ellipse cx="300" cy="180" rx="275" ry="142" stroke="rgba(229, 9, 20, 0.4)" stroke-width="1.5" stroke-dasharray="14 10 35 12" />
+                <ellipse cx="300" cy="180" rx="268" ry="138" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="3 14" />
+                <circle cx="568" cy="180" r="3" fill="#FFFFFF" filter="url(#solarNeonGlow)" />
+                <circle cx="32" cy="180" r="2.5" fill="#E50914" filter="url(#solarNeonGlow)" />
+              </g>
+
+              <!-- Secondary Mid Ring (Layer 2 - Rotates every 30s) -->
+              <g class="solar-ring-group-mid">
+                <ellipse cx="300" cy="180" rx="226" ry="116" stroke="url(#solarOrbitGrad)" stroke-width="2" stroke-dasharray="60 16 120 20" filter="url(#solarNeonGlow)" />
+                <ellipse cx="300" cy="180" rx="218" ry="112" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" stroke-dasharray="4 8" />
+                <circle cx="300" cy="64" r="3.5" fill="#FFFFFF" filter="url(#solarNeonGlow)" />
+                <circle cx="300" cy="296" r="3" fill="#E50914" filter="url(#solarNeonGlow)" />
+              </g>
+
+              <!-- Inner Orbital Ring (Layer 3 - Rotates every 55s) -->
+              <g class="solar-ring-group-inner">
+                <ellipse cx="300" cy="180" rx="145" ry="74" stroke="rgba(229, 9, 20, 0.75)" stroke-width="2" stroke-dasharray="30 12 15 12" filter="url(#solarNeonGlow)" />
+                <ellipse cx="300" cy="180" rx="138" ry="70" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1" />
+                <circle cx="445" cy="180" r="2.5" fill="#FFFFFF" />
               </g>
             </svg>
 
-            <!-- Middle Segmented Ring with Data Ticks -->
-            <svg class="ref-disc-svg ref-disc-ring-2" viewBox="0 0 600 600" fill="none">
-              <circle cx="300" cy="300" r="228" stroke="rgba(229, 9, 20, 0.75)" stroke-width="3" stroke-dasharray="80 20 40 15 120 25" />
-              <circle cx="300" cy="300" r="210" stroke="rgba(255, 255, 255, 0.35)" stroke-width="1.5" stroke-dasharray="4 8" />
-              <circle cx="300" cy="300" r="190" stroke="rgba(176, 0, 0, 0.7)" stroke-width="2" stroke-dasharray="14 14" />
-            </svg>
+            <!-- Central Sun: Make Xora MX Identity (Fixed, Pulsing) -->
+            <div class="solar-central-sun">
+              <div class="solar-sun-corona"></div>
+              <div class="solar-sun-body">
+                <div class="solar-sun-specular"></div>
+                <div class="solar-sun-brand">
+                  <div class="solar-sun-logo-mx">
+                    <span class="mx-m">M</span><span class="mx-x">X</span>
+                  </div>
+                  <div class="solar-sun-tagline">
+                    <span>DIGITAL</span>
+                    <span>MARKETING</span>
+                    <span>AGENCY</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <!-- Inner Precision Aperture Ring -->
-            <svg class="ref-disc-svg ref-disc-ring-3" viewBox="0 0 600 600" fill="none">
-              <circle cx="300" cy="300" r="148" stroke="rgba(255, 255, 255, 0.75)" stroke-width="2" stroke-dasharray="50 15 25 15" />
-              <circle cx="300" cy="300" r="124" stroke="rgba(229, 9, 20, 0.95)" stroke-width="3" stroke-dasharray="20 8" />
-              <circle cx="300" cy="300" r="100" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1.5" stroke-dasharray="6 6" />
-            </svg>
+            <!-- Six Orbiting Service Planets (Revolving Clockwise with Upright Labels) -->
+            <div class="solar-planets-track">
+              <!-- Planet 1: SEO (~1 o'clock) -->
+              <div class="solar-planet-orbit-wrapper planet-pos-1">
+                <a href="services/seo-ai-search.html" class="solar-planet-node" aria-label="SEO Service">
+                  <div class="solar-planet-sphere">
+                    <div class="solar-planet-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m21 21-4.35-4.35" />
+                        <path d="M11 8v6M8 11h6" />
+                      </svg>
+                    </div>
+                    <span class="solar-planet-label">SEO</span>
+                  </div>
+                </a>
+              </div>
 
-            <!-- Vivid Red Center Flare Core -->
-            <div class="ref-disc-center-core"></div>
-          </div>
+              <!-- Planet 2: Paid Advertising (~2:30 o'clock) -->
+              <div class="solar-planet-orbit-wrapper planet-pos-2">
+                <a href="services/paid-advertising.html" class="solar-planet-node" aria-label="Paid Advertising Service">
+                  <div class="solar-planet-sphere">
+                    <div class="solar-planet-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m3 11 18-5v12L3 13v-2z" />
+                        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+                      </svg>
+                    </div>
+                    <span class="solar-planet-label">Paid<br>Advertising</span>
+                  </div>
+                </a>
+              </div>
 
-          <!-- Social Icons positioned at lower-right of the visual -->
-          <div class="ref-visual-social-pills">
-            <a href="https://facebook.com/makexora" target="_blank" rel="noopener" class="ref-hero-social-pill" aria-label="Facebook">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.885v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
-              </svg>
-            </a>
-            <a href="https://twitter.com/makexora" target="_blank" rel="noopener" class="ref-hero-social-pill" aria-label="X / Twitter">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-            <a href="https://linkedin.com/company/makexora" target="_blank" rel="noopener" class="ref-hero-social-pill" aria-label="LinkedIn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-              </svg>
-            </a>
-            <a href="https://instagram.com/makexora" target="_blank" rel="noopener" class="ref-hero-social-pill" aria-label="Instagram">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324z" />
-              </svg>
-            </a>
+              <!-- Planet 3: Content Marketing (~4:30 o'clock) -->
+              <div class="solar-planet-orbit-wrapper planet-pos-3">
+                <a href="services/content-strategy.html" class="solar-planet-node" aria-label="Content Marketing Service">
+                  <div class="solar-planet-sphere">
+                    <div class="solar-planet-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="m10 9 5 3-5 3V9z" />
+                      </svg>
+                    </div>
+                    <span class="solar-planet-label">Content<br>Marketing</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Planet 4: Social Media Marketing (~6 o'clock) -->
+              <div class="solar-planet-orbit-wrapper planet-pos-4">
+                <a href="services/social-media.html" class="solar-planet-node" aria-label="Social Media Marketing Service">
+                  <div class="solar-planet-sphere">
+                    <div class="solar-planet-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                      </svg>
+                    </div>
+                    <span class="solar-planet-label">Social Media<br>Marketing</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Planet 5: Web Development (~7:30 o'clock) -->
+              <div class="solar-planet-orbit-wrapper planet-pos-5">
+                <a href="services/web-development.html" class="solar-planet-node" aria-label="Web Development Service">
+                  <div class="solar-planet-sphere">
+                    <div class="solar-planet-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <path d="m8 10-2 2 2 2m8-4 2 2-2 2M12 17v4m-4 0h8" />
+                      </svg>
+                    </div>
+                    <span class="solar-planet-label">Web<br>Development</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Planet 6: Growth Strategy (~10:30 o'clock) -->
+              <div class="solar-planet-orbit-wrapper planet-pos-6">
+                <a href="services.html" class="solar-planet-node" aria-label="Growth Strategy Service">
+                  <div class="solar-planet-sphere">
+                    <div class="solar-planet-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 20h18M7 16v-4m5 4V8m5 8v-8m-7-3 5-3 3 3" />
+                      </svg>
+                    </div>
+                    <span class="solar-planet-label">Growth<br>Strategy</span>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
       <!-- 3. ALL 4 CONTENTS VISIBLE AT ONE LINE IN ANIMATED BOXES -->
       <div class="ref-hero-animated-boxes-row">
