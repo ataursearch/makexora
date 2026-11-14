@@ -378,7 +378,60 @@
     });
   }
 
+  // ======================================================================
   // ==========================================================================
+  // 8. HERO CARDS STEPPER CONTROLLER
+  // ==========================================================================
+  function initHeroCardsStepper() {
+    const step1 = document.getElementById('heroStep1');
+    const step2 = document.getElementById('heroStep2');
+    const prevBtn = document.getElementById('heroPrevBtn');
+    const nextBtn = document.getElementById('heroNextBtn');
+    const deck1 = document.getElementById('heroCardDeck1');
+    const deck2 = document.getElementById('heroCardDeck2');
+
+    if (!deck1 || !deck2) return;
+
+    let currentStep = 1;
+
+    function goToStep(step) {
+      currentStep = step;
+      if (currentStep === 1) {
+        if (step1) step1.classList.add('active');
+        if (step2) step2.classList.remove('active');
+        deck2.style.opacity = '0';
+        deck2.style.transform = 'translateX(10px)';
+        setTimeout(() => {
+          deck2.style.display = 'none';
+          deck1.style.display = 'grid';
+          setTimeout(() => {
+            deck1.style.opacity = '1';
+            deck1.style.transform = 'translateX(0)';
+          }, 20);
+        }, 150);
+      } else {
+        if (step2) step2.classList.add('active');
+        if (step1) step1.classList.remove('active');
+        deck1.style.opacity = '0';
+        deck1.style.transform = 'translateX(-10px)';
+        setTimeout(() => {
+          deck1.style.display = 'none';
+          deck2.style.display = 'grid';
+          setTimeout(() => {
+            deck2.style.opacity = '1';
+            deck2.style.transform = 'translateX(0)';
+          }, 20);
+        }, 150);
+      }
+    }
+
+    if (step1) step1.addEventListener('click', () => goToStep(1));
+    if (step2) step2.addEventListener('click', () => goToStep(2));
+    if (prevBtn) prevBtn.addEventListener('click', () => goToStep(currentStep === 1 ? 2 : 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goToStep(currentStep === 1 ? 2 : 1));
+  }
+
+====
   // DOM READY INITIALIZATION
   // ==========================================================================
   document.addEventListener('DOMContentLoaded', () => {
@@ -389,6 +442,7 @@
     initPlayground();
     initPricingSwitcher();
     initFaq();
+    initHeroCardsStepper();
   });
 
 })();
